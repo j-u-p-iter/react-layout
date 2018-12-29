@@ -1,17 +1,16 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { curry } from 'ramda';
-
+import { curry } from "ramda";
 
 type ReactNode = React.ReactNode;
 
-interface internalParts {
+interface IInternalParts {
   headerContentEl?: ReactNode;
   sidebarContentEl?: ReactNode;
   footerContentEl?: ReactNode;
 }
 
-interface LayoutProps {
+interface ILayoutProps {
   wrapperClassName?: string;
   sidebarClassName?: string;
   contentClassName?: string;
@@ -19,34 +18,53 @@ interface LayoutProps {
   footerClassName?: string;
 }
 
-export const createLayout = curry(({ headerContentEl, sidebarContentEl, footerContentEl }: internalParts, contentEl: ReactNode): React.SFC<LayoutProps> => {
-  const Layout: React.SFC<LayoutProps> = ({ 
-    wrapperClassName, 
-    sidebarClassName,
-    contentClassName, 
-    headerClassName, 
-    footerClassName,
-  }) => {
-    const structure: ReactNode[] = [
-      headerContentEl && <header key='header' className={headerClassName}>{headerContentEl}</header>,
+export const createLayout = curry(
+  (
+    { headerContentEl, sidebarContentEl, footerContentEl }: IInternalParts,
+    contentEl: ReactNode
+  ): React.SFC<ILayoutProps> => {
+    const Layout: React.SFC<ILayoutProps> = ({
+      wrapperClassName,
+      sidebarClassName,
+      contentClassName,
+      headerClassName,
+      footerClassName
+    }) => {
+      const structure: ReactNode[] = [
+        headerContentEl && (
+          <header key="header" className={headerClassName}>
+            {headerContentEl}
+          </header>
+        ),
 
-      sidebarContentEl && <div key='sidebar' className={sidebarClassName}>{sidebarContentEl}</div>,
+        sidebarContentEl && (
+          <div key="sidebar" className={sidebarClassName}>
+            {sidebarContentEl}
+          </div>
+        ),
 
-      <div key='content' className={contentClassName}>{contentEl}</div>,
+        <div key="content" className={contentClassName}>
+          {contentEl}
+        </div>,
 
-      footerContentEl && <footer key='footer' className={footerClassName}>{footerContentEl}</footer>,
-    ].filter(Boolean);
+        footerContentEl && (
+          <footer key="footer" className={footerClassName}>
+            {footerContentEl}
+          </footer>
+        )
+      ].filter(Boolean);
 
-    return <div className={wrapperClassName}>{structure}</div>;
-  };
+      return <div className={wrapperClassName}>{structure}</div>;
+    };
 
-  Layout.defaultProps = {
-    wrapperClassName: '',
-    sidebarClassName: '',
-    contentClassName: '',
-    headerClassName: '',
-    footerClassName: '',
-  };
+    Layout.defaultProps = {
+      wrapperClassName: "",
+      sidebarClassName: "",
+      contentClassName: "",
+      headerClassName: "",
+      footerClassName: ""
+    };
 
-  return Layout;
-});
+    return Layout;
+  }
+);
