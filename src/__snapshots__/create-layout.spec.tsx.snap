@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create-layout currying works properly 1`] = `
+<div
+  class=""
+>
+  <header
+    class=""
+  >
+    Header
+  </header>
+  <div
+    class=""
+  >
+    Sidebar
+  </div>
+  <div
+    class=""
+  >
+    Main Content
+  </div>
+  <footer
+    class=""
+  >
+    Footer
+  </footer>
+</div>
+`;
+
+exports[`create-layout result component renders properly with all possible internal parts 1`] = `
+<div
+  class="wrapper"
+>
+  <header
+    class="header"
+  >
+    Header
+  </header>
+  <div
+    class="sidebar"
+  >
+    Sidebar
+  </div>
+  <div
+    class="content"
+  >
+    Main Content
+  </div>
+  <footer
+    class="footer"
+  >
+    Footer
+  </footer>
+</div>
+`;
+
+exports[`create-layout result component renders properly without some internal parts and without classNames 1`] = `
+<div
+  class=""
+>
+  <div
+    class=""
+  >
+    Sidebar
+  </div>
+  <div
+    class=""
+  >
+    Main Content
+  </div>
+</div>
+`;

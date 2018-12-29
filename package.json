@@ -1,0 +1,42 @@
+{
+  "name": "@j.u.p.iter/react-layout",
+  "version": "0.0.0-semantically-released",
+  "description": "Reusable layout component",
+  "keywords": [
+    "react",
+    "layout"
+  ],
+  "main": "dist/lib/react-layout.cjs.js",
+  "module": "dist/lib/react-layout.esm.js",
+  "umd:main": "dist/lib/react-layout.umd.min.js",
+  "source": "dist/lib/react-layout.js",
+  "typings": "dist/types",
+  "repository": "git@github.com:j-u-p-iter/react-layout.git",
+  "author": "Leontyev Kirill (j.u.p.iter) <pn79122821224@gmail.com> (http://j-u-p-iter.pro/)",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "commit": "jupiter-scripts precommit --allowJs",
+    "build": "jupiter-scripts build --bundle",
+    "start": "yarn run build --watch",
+    "lint": "jupiter-scripts lint --format codeFrame",
+    "lint:fix": "yarn run lint --fix",
+    "test": "jupiter-scripts test"
+  },
+  "devDependencies": {
+    "@j.u.p.iter/jupiter-scripts": "^1.5.0",
+    "@types/ramda": "^0.25.45",
+    "@types/react": "^16.7.18",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-testing-library": "^5.4.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.4.2"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1"
+  }
+}
